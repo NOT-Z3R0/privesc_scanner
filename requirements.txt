@@ -1,0 +1,18 @@
+# PrivEsc Scanner - Python Dependencies
+# No external dependencies required - uses only Python standard library
+# This is intentional for portability and ease of deployment
+
+# Python 3.6+ standard library modules used:
+# - os, sys: System operations
+# - json: JSON report generation
+# - subprocess: Command execution
+# - argparse: Command-line argument parsing
+# - pathlib: Path handling
+# - datetime: Timestamps
+# - typing: Type hints
+# - collections: Data structures
+# - pwd: User information (Unix-specific)
+
+# Optional: For enhanced functionality (not required)
+# pip install colorama  # Better cross-platform color support
+# pip install rich      # Enhanced terminal output
