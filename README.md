@@ -49,7 +49,7 @@ python3 privesc_scanner.py --verbose
 python3 privesc_scanner.py --output-dir ./reports
 
 
-
+```
 Reports are saved to the `output/` directory.
 
 ---
