@@ -1224,17 +1224,24 @@ class PrivEscScanner:
     def _generate_reports(self):
         """Generate all reports."""
         report_gen = ReportGenerator(dict(self.findings), self.system_info)
-        
+
+        # Get hostname (fallback to 'unknown' if not available)
+        try:
+            import socket
+            hostname = socket.gethostname()
+        except Exception:
+            hostname = 'unknown' 
+
         # Text report
         text_report_path = self.output_dir / f"privesc_report_{self.system_info['hostname']}_{self.system_info['user']['username']}_{self.system_info['kernel']['kernel_version'].replace('.', '_')}.txt"
         report_gen.generate_text_report(text_report_path)
         print(f"  Text report: {text_report_path}")
         
         # JSON report
-        json_report_path = self.output_dir / f"privesc_report_{self.system_info['hostname']}_{self.system_info['user']['username']}_{self.system_info['kernel']['kernel_version'].replace('.', '_')}.json"
+        json_report_path = self.output_dir / f"privesc_report_{hostname}_{self.system_info['user']['username']}_{self.system_info['kernel']['kernel_version'].replace('.', '_')}.json"
         report_gen.generate_json_report(json_report_path)
         print(f"  JSON report: {json_report_path}")
-    
+        
     def _print_summary(self):
         """Print final summary."""
         print(f"\n{Config.COLORS['BOLD']}{Config.COLORS['CYAN']}")
