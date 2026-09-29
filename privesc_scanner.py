@@ -1238,10 +1238,10 @@ class PrivEscScanner:
         print(f"  Text report: {text_report_path}")
         
         # JSON report
-        json_report_path = self.output_dir / f"privesc_report_{hostname}_{self.system_info['user']['username']}_{self.system_info['kernel']['kernel_version'].replace('.', '_')}.json"
+        jjson_report_path = self.output_dir / f"privesc_report_{self.system_info['hostname']}_{self.system_info['user']['username']}_{self.system_info['kernel']['kernel_version'].replace('.', '_')}.json"
         report_gen.generate_json_report(json_report_path)
         print(f"  JSON report: {json_report_path}")
-        
+
     def _print_summary(self):
         """Print final summary."""
         print(f"\n{Config.COLORS['BOLD']}{Config.COLORS['CYAN']}")
