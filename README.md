@@ -48,11 +48,7 @@ python3 privesc_scanner.py --verbose
 # Custom output directory
 python3 privesc_scanner.py --output-dir ./reports
 
-# Helper scripts
-bash bash_helpers/system_info.sh
-bash bash_helpers/suid_scan.sh
-bash bash_helpers/cron_scan.sh
-```
+
 
 Reports are saved to the `output/` directory.
 
